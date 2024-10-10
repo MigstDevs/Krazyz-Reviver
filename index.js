@@ -1,12 +1,23 @@
 import { Client, GatewayIntentBits, ActivityType } from 'discord.js';
 import dotenv from 'dotenv';
+import express from "express";
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
 dotenv.config();
 
+const app = express();
+
 const token = process.env.token;
 const channelId = '1291786896401240075';
+
+app.listen(3000, () => {
+    console.log("Uau!");
+  });
+  
+  app.get("/", (req, res) => {
+    res.send("yesyes");
+  });
 
 client.on('ready', () => {
     console.log(`Logado como ${client.user.tag}!`);
