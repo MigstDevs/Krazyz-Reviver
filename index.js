@@ -9,7 +9,6 @@ dotenv.config();
 const app = express();
 
 const token = process.env.token;
-const channelId = '1291786896401240075';
 
 app.listen(3000, () => {
     console.log("Uau!");
@@ -33,7 +32,7 @@ client.on('ready', () => {
     });
 
     async function pingEveryone() {
-        const channel = client.channels.cache.get(channelId);
+        const channel = client.channels.cache.get('1295044721374265385') || client.channels.cache.find(channel => channel.name === '「💬」・chat');
 
         await channel.send(`Hora de acordar povo! <@&1291822526346952796>\n\n**__Nota__**: Próximo **Ping Reviver** em 45 minutos!`);
     }
